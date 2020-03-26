@@ -1,0 +1,7 @@
+.Card {
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  align-items: center;
+  justify-items: center;
+  margin: 20px 0;
+}
