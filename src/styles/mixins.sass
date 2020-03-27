@@ -1,0 +1,8 @@
+// to include mixins import this file in the target file with @import '../../mixins'
+// and then write @include font-style and you can call it.
+
+@mixin font-style($size, $line-height, $color, $family: $lato)
+  color: $color
+  font-family: $family
+  font-size: $size
+  line-height: $line-height

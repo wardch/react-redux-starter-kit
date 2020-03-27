@@ -1,0 +1,16 @@
+$colorLightGray1: #ebebeb;
+$colorPink: #ffc0cb;
+$colorYellow: #ffffe0;
+$colorRed: #b19cd9;
+$colorGreen: #98fb98;
+$colorWhite: #fff;
+
+// sass-lint:disable no-misspelled-properties
+:export {
+  $colorLightGray1: $colorLightGray1;
+  $colorYellow: $colorYellow;
+  $colorGreen: $colorGreen;
+  $colorPink: $colorPink;
+  $colorRed: $colorRed;
+  $colorWhite: $colorWhite;
+};

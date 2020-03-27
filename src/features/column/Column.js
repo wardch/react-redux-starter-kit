@@ -6,17 +6,31 @@ import {
   selectCards,
   selectTitle
 } from './columnSlice'
-import './Column.css'
+import './Column.sass'
 import { Card } from '../card/Card'
 
 const handleOnClick = (columnId, dispatch) => {
   const cardText = window.prompt()
-  const card = {
-    columnId: columnId,
-    text: cardText,
-    cardId: null
-  }
+  const card = createCard(columnId, cardText)
   dispatch(addCard(card))
+}
+
+const createCard = (columnId, cardText) => {
+  return (
+    {
+      columnId: columnId,
+      text: cardText,
+      cardId: null
+    }
+  )
+}
+
+const createCards = (cards, columnId) => {
+  return cards.map(card => {
+    return (
+      <Card card={card} key={`columnId-${columnId}-cardId-${card.cardId}`} moveCard={moveCard}/>
+    )
+  })
 }
 
 export function Column ({ columnId }) {
@@ -31,13 +45,7 @@ export function Column ({ columnId }) {
       </div>
       <div className={'Column--body'}>
         <div className={'Column--cards-container'}>
-          {
-            cards.map(card => {
-              return (
-                <Card card={card} key={`columnId-${columnId}-cardId-${card.cardId}`} moveCard={moveCard}/>
-              )
-            })
-          }
+          { createCards(cards, columnId) }
         </div>
         <div className={'Column--add-card'} onClick={() => handleOnClick(columnId, dispatch)}>
           + Add Card

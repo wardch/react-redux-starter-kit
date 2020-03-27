@@ -1,5 +1,5 @@
-import testMiddleWare from './testMiddleware.js'
+import exampleMiddleware from './exampleMiddleware.js'
 
 export {
-  testMiddleWare
+  exampleMiddleware
 }
