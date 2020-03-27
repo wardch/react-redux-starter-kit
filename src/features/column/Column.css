@@ -1,6 +1,5 @@
 .Column {
-  background: white;
-  background-color: white;
+  background: #efefef;
 }
 
 .Column--header {
@@ -22,7 +21,7 @@
 }
 
 .Column--header--4 {
-  background-color: blue;
+  background-color: green;
 }
 
 .Column--add-card {

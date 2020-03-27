@@ -2,9 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import {
   addCard,
-  // increment,
-  // incrementByAmount,
-  // incrementAsync,
+  moveCard,
   selectCards,
   selectTitle
 } from './columnSlice'
@@ -25,7 +23,6 @@ export function Column ({ columnId }) {
   const cards = useSelector(selectCards)(columnId)
   const title = useSelector(selectTitle)(columnId)
   const dispatch = useDispatch()
-  // const [incrementAmount, setIncrementAmount] = useState('2')
 
   return (
     <div className={'Column'} key={`Column--${columnId}`}>
@@ -37,7 +34,7 @@ export function Column ({ columnId }) {
           {
             cards.map(card => {
               return (
-                <Card card={card} key={`columnId-${columnId}-cardId-${card.cardId}`} />
+                <Card card={card} key={`columnId-${columnId}-cardId-${card.cardId}`} moveCard={moveCard}/>
               )
             })
           }
