@@ -6,6 +6,10 @@ import * as middleware from './middleware/index'
 import thunk from 'redux-thunk'
 import throttle from 'lodash/throttle'
 
+/*
+  by default we are saving the state to localStorage, can configure if you want to change it
+*/
+
 const persistedState = loadFromLocalStorage()
 
 const middlewareToApply = [logger, thunk, ...Object.values(middleware)]
