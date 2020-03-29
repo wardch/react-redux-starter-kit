@@ -4,6 +4,7 @@ import rootReducer from './reducers'
 import { loadFromLocalStorage, saveToLocalStorage } from './localStorage'
 import * as middleware from './middleware/index'
 import thunk from 'redux-thunk'
+import throttle from 'lodash/throttle'
 
 const persistedState = loadFromLocalStorage()
 
@@ -16,9 +17,11 @@ const loadMiddleWare = () => {
 const configureStore = () => {
   const store = createStore(rootReducer, persistedState, loadMiddleWare())
 
-  store.subscribe(() => {
-    saveToLocalStorage(store.getState())
-  })
+  store.subscribe(throttle(
+    () => {
+      saveToLocalStorage(store.getState())
+    }, 1000)
+  )
 
   return store
 }

@@ -18,13 +18,13 @@ export function Card ({ card, moveCard }) {
   return (
     <div className='Card'>
       <div className={'Card--left-arrow'} onClick={() => handleOnClick('left', card, moveCard, dispatch) }>
-        &larr;
+        <i className="fas fa-chevron-left"/>
       </div>
       <div className={'Card--text'}>
         {card.text}
       </div>
       <div className={'Card--right-arrow'} onClick={() => handleOnClick('right', card, moveCard, dispatch) }>
-        &rarr;
+        <i className="fas fa-chevron-right"/>
       </div>
     </div>
   )
