@@ -37,7 +37,6 @@ export function Column ({ columnId }) {
   const cards = useSelector(selectCards)(columnId)
   const title = useSelector(selectTitle)(columnId)
   const dispatch = useDispatch()
-
   return (
     <div className={'Column'} key={`Column--${columnId}`}>
       <div className={`Column--header Column--header--${columnId}`}>
