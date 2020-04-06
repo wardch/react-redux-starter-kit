@@ -28,7 +28,7 @@ function App () {
     <>
       <div className={'App--background-grey'}/>
       <div className="App">
-        Hello World! Hellow Squirrels!
+        Hello World! Hello Squirrels!
       </div>
     </>
   )
