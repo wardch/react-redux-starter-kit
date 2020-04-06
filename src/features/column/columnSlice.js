@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-import initialState from './columnsInitialState'
 
 const addNewCard = (state, card) => {
   const cardWithId = findCardWithId(state, card)
@@ -25,7 +24,7 @@ const findCardWithId = (state, card) => {
 
 export const slice = createSlice({
   name: 'columns',
-  initialState: initialState,
+  initialState: [],
   reducers: {
     addCard: (state, action) => {
       addNewCard(state, action.payload)

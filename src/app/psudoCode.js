@@ -1,5 +1,0 @@
-/*
-  This file is for writting psudo code in. You should start here every time
-  To get quick at sketching out how your app will flow in terms of components
-  and arguments
-*/
