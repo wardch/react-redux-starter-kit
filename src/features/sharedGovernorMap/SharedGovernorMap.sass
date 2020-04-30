@@ -1,0 +1,22 @@
+@mixin mobile
+  @media screen and (max-width: 992px)
+    @content
+
+.SharedGovernorMap
+  display: flex
+  flex-flow: row nowrap
+  justify-content: flex-start
+  margin-bottom: 8vw
+  position: relative
+  @include mobile
+    height: inherit
+
+  &__container
+    flex: 1 1
+    height: 100%
+    position: relative
+    #governor-map
+      height: 30vw
+      width: 100%
+      @include mobile
+        height: 50vw

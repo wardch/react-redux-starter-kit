@@ -1,8 +1,114 @@
 // to include mixins import this file in the target file with @import '../../mixins'
 // and then write @include font-style and you can call it.
 
-@mixin font-style($size, $line-height, $color, $family: $lato)
-  color: $color
-  font-family: $family
+
+
+@mixin mobile-sm
+  @media screen and (max-width: 767px)
+    @content
+
+@mixin mobile-sm-min
+  @media screen and (min-width: 768px)
+    @content
+
+@mixin desktop
+  @media screen and (min-width: 993px)
+    @content
+
+@mixin desktop-md
+  @media screen and (max-width: 1282px)
+    @content
+
+@mixin font-style($size, $line-height, $color, $family: $museo700)
   font-size: $size
   line-height: $line-height
+  color: $color
+  font-family: $family
+
+@mixin metric-content
+  h1.lg-white
+    @include font-style(85px, 1, $white)
+    @include mobile
+      @include font-style(60px, 1, $white)
+  h1.lg-gray
+    @include font-style(85px, 1, $darkest-gray)
+    @include mobile
+      @include font-style(72px, 1, $darkest-gray)
+  h1.md-white
+    @include font-style(60px, 1, $white)
+  h1.md-gray
+    @include font-style(60px, 1, $darkest-gray)
+    @include mobile
+      @include font-style(45px, 1, $darkest-gray)
+  h1.sm-white
+    @include font-style(56px, 1, $white)
+    @include mobile
+      @include font-style(30px, 1, $white)
+  span
+    @include font-style(30px, 1, $white)
+    @include mobile
+      @include font-style(50px, 1, $white)
+  p.lg-gray
+    @include font-style(24px, 1.5, $darkest-gray)
+    text-transform: uppercase
+    @include mobile
+      @include font-style(24px, 1.5, $darkest-gray)
+  p.md-white
+    @include font-style(22px, 1.5, $white)
+    @include mobile
+      @include font-style(22px, 1.5, $white)
+  p.md-gray
+    @include font-style(22px, 1.5, $darkest-gray)
+    @include mobile
+      @include font-style(24px, 1.5, $darkest-gray)
+  p.sm-white
+    @include font-style(18px, 1.5, $white, $lato)
+    @include mobile
+      @include font-style(18px, 1.5, $white, $lato)
+    font-weight: 400
+  p.sm-gray
+    @include font-style(18px, 1.5, $darkest-gray, $lato)
+    font-weight: 400
+  p.xs-white
+    font-weight: 400
+    @include mobile
+      @include font-style(14px, inherit, $white)
+  button
+    background: rgba(255,255,255,0.2)
+    border: 2px solid rgba(242,107,32,0.5)
+    border-radius: 4px
+    padding: 6px 17px
+    @include mobile
+      width: 100%
+  a
+    @include font-style(18px, 24px, $black, $lato)
+    text-decoration: none
+    @include mobile
+      @include font-style(16px, 24px, $black, $lato)
+    &.read-upgrade-story-link
+      text-decoration: underline
+
+@mixin responsive-font($responsive, $min, $max: false, $fallback: false)
+  $responsive-unitless: $responsive / ($responsive - $responsive + 1)
+  $dimension: if(unit($responsive) == 'vh', 'height', 'width')
+  $min-breakpoint: $min / $responsive-unitless * 100
+
+  @media screen and (max-width: 767px)
+    font-size: $min
+
+  @if $max
+    $max-breakpoint: $max / $responsive-unitless * 100
+
+    @media (min-#{$dimension}: #{$max-breakpoint})
+      font-size: $max
+
+@if $fallback
+    font-size: $fallback
+
+  font-size: $responsive
+
+@mixin state-ranking-cell-padding
+  padding: 0 32px
+
+  @include mobile
+    padding: 0 6vw
